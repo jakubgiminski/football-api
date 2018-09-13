@@ -13,6 +13,8 @@ class AppFixtures extends Fixture
     {
         $this->loadLaLiga($objectManager);
         $this->loadPremierLeague($objectManager);
+
+        $objectManager->flush();
     }
 
     private function loadLaLiga(ObjectManager $objectManager): void
@@ -31,7 +33,6 @@ class AppFixtures extends Fixture
         $objectManager->persist($realMadrid);
         $objectManager->persist($atletico);
         $objectManager->persist($laLiga);
-        $objectManager->flush();
     }
 
     private function loadPremierLeague(ObjectManager $objectManager): void
@@ -50,6 +51,5 @@ class AppFixtures extends Fixture
         $objectManager->persist($arsenal);
         $objectManager->persist($chelsea);
         $objectManager->persist($premierLeague);
-        $objectManager->flush();
     }
 }

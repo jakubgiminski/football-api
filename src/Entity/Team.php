@@ -2,12 +2,13 @@
 
 namespace App\Entity;
 
+use App\Arrayable;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TeamRepository")
  */
-class Team
+class Team implements Arrayable
 {
     /**
      * @ORM\Id()
@@ -54,15 +55,22 @@ class Team
         return $this->strip;
     }
 
-    public function getLeague(): ?League
+    public function getLeague(): League
     {
         return $this->league;
     }
 
-    public function setLeague(?League $league): self
+    public function setLeague(League $league): void
     {
         $this->league = $league;
+    }
 
-        return $this;
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'strip' => $this->strip,
+        ];
     }
 }
