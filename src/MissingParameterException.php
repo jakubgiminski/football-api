@@ -4,7 +4,7 @@ namespace App;
 
 use Exception;
 
-class MissingParameterException extends Exception
+class MissingParameterException extends Exception implements ApiException
 {
     public function __construct(string $parameterName)
     {

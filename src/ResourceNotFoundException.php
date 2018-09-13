@@ -4,7 +4,7 @@ namespace App;
 
 use Exception;
 
-class ResourceNotFoundException extends Exception
+class ResourceNotFoundException extends Exception implements ApiException
 {
     public function __construct(string $resourceName)
     {

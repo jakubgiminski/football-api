@@ -13,8 +13,10 @@
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.0",
+        "symfony/browser-kit": "*",
         "symfony/dotenv": "*",
         "symfony/maker-bundle": "^1.7",
+        "symfony/phpunit-bridge": "*",
         "symfony/web-server-bundle": "*"
     },
     "config": {
@@ -30,7 +32,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "FootballApi\\Tests\\": "tests/"
         }
     },
     "replace": {

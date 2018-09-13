@@ -45,14 +45,29 @@ class Team implements Arrayable
         return $this->id;
     }
 
+    public function setId(string $id): void
+    {
+        $this->id = $id;
+    }
+
     public function getName(): string
     {
         return $this->name;
     }
 
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
     public function getStrip(): string
     {
         return $this->strip;
+    }
+
+    public function setStrip(string $strip): void
+    {
+        $this->strip = $strip;
     }
 
     public function getLeague(): League

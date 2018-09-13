@@ -9,7 +9,7 @@ class ValidateId
     public function __invoke(string $id): void
     {
         if (preg_match('/\s/',$id)) {
-            throw new InvalidArgumentException('Id must not contain any whitespaces');
+            throw new InvalidArgumentException('Id must not contain any whitespace');
         }
     }
 }
