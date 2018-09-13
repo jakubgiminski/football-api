@@ -5,9 +5,10 @@ namespace App\Controller;
 use App\CollectionSerializer;
 use App\Repository\LeagueRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-class TeamController extends AbstractController
+class GetTeamsController extends AbstractController
 {
     private $leagueRepository;
 
@@ -20,9 +21,9 @@ class TeamController extends AbstractController
     }
 
     /**
-     * @Route("leagues/{leagueId}/teams", name="getAllTeams")
+     * @Route("leagues/{leagueId}/teams", methods={"GET"})
      */
-    public function getAll(string $leagueId)
+    public function __invoke(string $leagueId): JsonResponse
     {
         $teams = $this->leagueRepository
             ->find($leagueId)
