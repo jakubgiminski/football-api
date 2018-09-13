@@ -28,8 +28,10 @@ class League
      */
     private $teams;
 
-    public function __construct()
+    public function __construct(string $id, string $name)
     {
+        $this->id = $id;
+        $this->name = $name;
         $this->teams = new ArrayCollection();
     }
 
