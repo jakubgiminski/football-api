@@ -1,0 +1,7 @@
+/.env
+/public/bundles/
+/var/
+/vendor/
+.idea
+.env
+.env.dist
