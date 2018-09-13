@@ -48,7 +48,7 @@ class CreateTeam
             throw new ResourceAlreadyExistsException(Team::class);
         }
 
-        $this->validateId->__invoke($teamId);
+        ($this->validateId)($teamId);
 
         $team = new Team($teamId, $teamName, $teamStrip);
         $league->addTeam($team);
