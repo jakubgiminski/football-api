@@ -27,19 +27,15 @@ class CreateTeamController extends AbstractController
      */
     public function __invoke(string $leagueId, Request $request): JsonResponse
     {
-        try {
-            ($this->validateRequest)($request, ['id', 'name', 'strip']);
+        ($this->validateRequest)($request, ['id', 'name', 'strip']);    
 
-            ($this->createTeam)(
-                $leagueId,
-                $request->get('id'),
-                $request->get('name'),
-                $request->get('strip')
-            );
+        ($this->createTeam)(
+            $leagueId,
+            $request->get('id'),
+            $request->get('name'),
+            $request->get('strip')
+        );
 
-            return new JsonResponse(null, 201);
-        } catch (ApiException $exception) {
-            return new JsonResponse($exception->getMessage(), $exception->getCode());
-        }
+        return new JsonResponse(null, 201);
     }
 }
