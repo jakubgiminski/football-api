@@ -4,7 +4,6 @@ namespace App\Tests;
 
 use App\ResourceAlreadyExistsException;
 use App\Service\CreateTeam;
-use App\Tests\FootballApiTest;
 
 class CreateTeamTest extends FootballApiTest
 {

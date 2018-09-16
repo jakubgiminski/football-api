@@ -4,7 +4,6 @@ namespace App\Service;
 
 use App\Entity\Team;
 use App\Id;
-use App\ResourceNotFoundException;
 use App\Repository\TeamRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 
