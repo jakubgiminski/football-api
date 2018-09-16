@@ -4,9 +4,9 @@ namespace App\Repository;
 
 use App\Entity\League;
 use App\Id;
-use App\ResourceNotFoundException;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
 class LeagueRepository extends ServiceEntityRepository
 {

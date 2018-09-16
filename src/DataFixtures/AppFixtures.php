@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\League;
 use App\Entity\Team;
+use App\Id;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -21,9 +22,9 @@ class AppFixtures extends Fixture
     {
         $laLiga= new League('la-liga', 'Liga de Futbol Profesional');
 
-        $barca = new Team('barca', 'FC Barcelona', 'blue and garnet');
-        $realMadrid = new Team('real', 'Real Madrid C.F.', 'white');
-        $atletico = new Team('atletico', 'Atletico Madrid', 'white, red and blue');
+        $barca = new Team(new Id('barca'), 'FC Barcelona', 'blue and garnet');
+        $realMadrid = new Team(new Id('real'), 'Real Madrid C.F.', 'white');
+        $atletico = new Team(new Id('atletico'), 'Atletico Madrid', 'white, red and blue');
 
         $laLiga->addTeam($barca);
         $laLiga->addTeam($realMadrid);
@@ -39,9 +40,9 @@ class AppFixtures extends Fixture
     {
         $premierLeague = new League('premier-league', 'Premier League');
 
-        $tottenham = new Team('spurs', 'Tottenham Hotspur F.C.', 'white and navy blue');
-        $arsenal = new Team('gunners', 'Arsenal F.C.', 'white and red');
-        $chelsea = new Team('chelsea', 'Chelsea F.C.', 'white, blue and royal blue');
+        $tottenham = new Team(new Id('spurs'), 'Tottenham Hotspur F.C.', 'white and navy blue');
+        $arsenal = new Team(new Id('gunners'), 'Arsenal F.C.', 'white and red');
+        $chelsea = new Team(new Id('chelsea'), 'Chelsea F.C.', 'white, blue and royal blue');
 
         $premierLeague->addTeam($tottenham);
         $premierLeague->addTeam($arsenal);
