@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\League;
 use App\Entity\Team;
+use App\Id;
 use App\ResourceAlreadyExistsException;
 use App\ResourceNotFoundException;
 use App\Repository\LeagueRepository;
@@ -19,43 +20,36 @@ class CreateTeam
     
     private $objectManager;
 
-    private $validateId;
-    
     public function __construct(
         LeagueRepository $leagueRepository, 
         TeamRepository $teamRepository,
-        ObjectManager $objectManager,
-        ValidateId $validateId
+        ObjectManager $objectManager
     ) {
         $this->leagueRepository = $leagueRepository;
         $this->teamRepository = $teamRepository;
         $this->objectManager = $objectManager;
-        $this->validateId = $validateId;
     }
 
     public function __invoke(
-        string $leagueId,
-        string $teamId, 
+        Id $leagueId,
+        Id $teamId,
         string $teamName, 
         string $teamStrip
-    ): void {
-        $league = $this->leagueRepository->findOneBy(['id' => $leagueId]);
-        if (!$leagueId) {
-            throw new ResourceNotFoundException(League::class);
-        }
+    ): Team {
+        $league = $this->leagueRepository->findOrFail($leagueId);
 
-        if ($this->teamRepository->findOneBy(['id' => $teamId])) {
+        if ($this->teamRepository->find($teamId)) {
             throw new ResourceAlreadyExistsException(Team::class);
         }
 
-        ($this->validateId)($teamId);
-
         $team = new Team($teamId, $teamName, $teamStrip);
-        $league->addTeam($team);
-
         $this->objectManager->persist($team);
+
+        $league->addTeam($team);
         $this->objectManager->persist($league);
 
         $this->objectManager->flush();
+
+        return $team;
     }
 }

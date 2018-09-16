@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\ApiException;
+use App\Id;
 use App\Service\CreateTeam;
 use App\ValidateRequest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,15 +27,15 @@ class CreateTeamController extends AbstractController
      */
     public function __invoke(string $leagueId, Request $request): JsonResponse
     {
-        ($this->validateRequest)($request, ['id', 'name', 'strip']);    
+        ($this->validateRequest)($request, ['id', 'name', 'strip']);
 
-        ($this->createTeam)(
-            $leagueId,
-            $request->get('id'),
+        $team = ($this->createTeam)(
+            new Id($leagueId),
+            new Id($request->get('id')),
             $request->get('name'),
             $request->get('strip')
         );
 
-        return new JsonResponse(null, 201);
+        return new JsonResponse($team->toArray(), 201);
     }
 }

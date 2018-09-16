@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\League;
+use App\Id;
+use App\ResourceNotFoundException;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -13,32 +15,12 @@ class LeagueRepository extends ServiceEntityRepository
         parent::__construct($registry, League::class);
     }
 
-//    /**
-//     * @return League[] Returns an array of League objects
-//     */
-    /*
-    public function findByExampleField($value)
+    public function findOrFail(Id $league): League
     {
-        return $this->createQueryBuilder('l')
-            ->andWhere('l.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('l.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $league = $this->find((string) $league);
+        if ($league === null) {
+            throw new ResourceNotFoundException(League::class);
+        }
+        return $league;
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?League
-    {
-        return $this->createQueryBuilder('l')
-            ->andWhere('l.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

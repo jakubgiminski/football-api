@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Arrayable;
+use App\Id;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -33,7 +34,7 @@ class Team implements Arrayable
      */
     private $league;
 
-    public function __construct(string $id, string $name, string $strip)
+    public function __construct(Id $id, string $name, string $strip)
     {
         $this->id = $id;
         $this->name = $name;
@@ -83,7 +84,7 @@ class Team implements Arrayable
     public function toArray(): array
     {
         return [
-            'id' => $this->id,
+            'id' => (string) $this->id,
             'name' => $this->name,
             'strip' => $this->strip,
         ];
