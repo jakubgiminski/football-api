@@ -41,7 +41,7 @@ class Team implements Arrayable
         $this->strip = $strip;
     }
 
-    public function getId(): string
+    public function getId(): Id
     {
         return $this->id;
     }

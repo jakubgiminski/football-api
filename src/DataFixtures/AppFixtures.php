@@ -20,7 +20,7 @@ class AppFixtures extends Fixture
 
     private function loadLaLiga(ObjectManager $objectManager): void
     {
-        $laLiga= new League('la-liga', 'Liga de Futbol Profesional');
+        $laLiga= new League(new Id('la-liga'), 'Liga de Futbol Profesional');
 
         $barca = new Team(new Id('barca'), 'FC Barcelona', 'blue and garnet');
         $realMadrid = new Team(new Id('real'), 'Real Madrid C.F.', 'white');
@@ -38,7 +38,7 @@ class AppFixtures extends Fixture
 
     private function loadPremierLeague(ObjectManager $objectManager): void
     {
-        $premierLeague = new League('premier-league', 'Premier League');
+        $premierLeague = new League(new Id('premier-league'), 'Premier League');
 
         $tottenham = new Team(new Id('spurs'), 'Tottenham Hotspur F.C.', 'white and navy blue');
         $arsenal = new Team(new Id('gunners'), 'Arsenal F.C.', 'white and red');

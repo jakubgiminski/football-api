@@ -2,14 +2,11 @@
 
 namespace App\Service;
 
-use App\Entity\League;
 use App\Entity\Team;
 use App\Id;
 use App\ResourceAlreadyExistsException;
-use App\ResourceNotFoundException;
 use App\Repository\LeagueRepository;
 use App\Repository\TeamRepository;
-use App\ValidateId;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class CreateTeam
