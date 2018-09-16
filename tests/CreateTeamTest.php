@@ -24,9 +24,9 @@ class CreateTeamTest extends FootballApiTest
     public function testThrowsExceptionIfTeamAlreadyExists(): void
     {
         $this->teamRepository
-            ->method('find')
+            ->method('exists')
             ->with($this->team->getId())
-            ->willReturn($this->team);
+            ->willReturn(true);
 
         $createTeam = new CreateTeam($this->leagueRepository, $this->teamRepository, $this->objectManager);
 

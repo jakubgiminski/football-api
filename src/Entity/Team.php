@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TeamRepository")
  */
-final class Team implements Arrayable
+class Team implements Arrayable
 {
     /**
      * @ORM\Id()
