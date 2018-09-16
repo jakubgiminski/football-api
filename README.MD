@@ -1,7 +1,7 @@
 # Football API
 
 ## Project objectives
-Create an http API, that allows users to do three things
+Create an http API, that allows users to do four things
 - get a list of all teams from a league
 - create and add a new team to a league
 - update a team
@@ -37,7 +37,7 @@ Create an http API, that allows users to do three things
 {
     url = "/leagues/{leagueId}/teams/{teamId}",
     method = "PUT",
-    body = ["id", "name", "strip"]
+    body = ["name", "strip"]
 }
 ```
 
