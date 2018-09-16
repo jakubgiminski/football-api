@@ -43,6 +43,7 @@ abstract class FootballApiTest extends TestCase
         );
 
         $this->team->setLeague($this->league);
+        $this->league->addTeam($this->team);
 
         $this->objectManager = $this->mockObjectManager();
         $this->leagueRepository = $this->mockLeagueRepository();

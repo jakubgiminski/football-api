@@ -30,6 +30,6 @@ class GetTeamsController extends AbstractController
             ->findOrFail(new Id($leagueId))
             ->getTeams();
 
-        return $this->json($this->serializer->toArray($teams));
+        return new JsonResponse($this->serializer->toArray($teams));
     }
 }
