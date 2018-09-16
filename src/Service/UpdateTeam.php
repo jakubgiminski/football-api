@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Team;
+use App\Id;
 use App\ResourceNotFoundException;
 use App\Repository\TeamRepository;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -20,24 +21,18 @@ class UpdateTeam
     }
 
     public function __invoke(
-        string $leagueId,
-        string $teamId,
+        Id $teamId,
         string $teamName,
         string $teamStrip
-    ): void {
-        $team = $this->teamRepository->findOneBy([
-            'league' => $leagueId,
-            'id' => $teamId,
-        ]);
-
-        if (!$team) {
-            throw new ResourceNotFoundException(Team::class);
-        }
+    ): Team {
+        $team = $this->teamRepository->findOrFail($teamId);
 
         $team->setName($teamName);
         $team->setStrip($teamStrip);
 
         $this->objectManager->persist($team);
         $this->objectManager->flush();
+
+        return $team;
     }
 }

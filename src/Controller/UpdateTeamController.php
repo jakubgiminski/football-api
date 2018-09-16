@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Id;
 use App\Service\UpdateTeam;
 use App\Service\ValidateRequest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,17 +25,16 @@ class UpdateTeamController extends AbstractController
     /**
      * @Route("leagues/{leagueId}/teams/{teamId}", methods={"PUT"})
      */
-    public function __invoke(string $leagueId, string $teamId, Request $request): JsonResponse
+    public function __invoke(string $teamId, Request $request): JsonResponse
     {
         ($this->validateRequest)($request, ['name', 'strip']);
 
-        ($this->updateTeam)(
-            $leagueId,
-            $teamId,
+        $team = ($this->updateTeam)(
+            new Id($teamId),
             $request->get('name'),
             $request->get('strip')
         );
 
-        return new JsonResponse(null, 202);
+        return new JsonResponse($team->toArray(), 202);
     }
 }

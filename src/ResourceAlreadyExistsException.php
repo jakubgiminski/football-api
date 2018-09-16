@@ -2,12 +2,12 @@
 
 namespace App;
 
-use Exception;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-class ResourceAlreadyExistsException extends Exception implements ApiException
+class ResourceAlreadyExistsException extends BadRequestHttpException
 {
     public function __construct(string $resourceName)
     {
-        parent::__construct("Resource $resourceName already exists", 403);
+        parent::__construct("Resource $resourceName already exists");
     }
 }

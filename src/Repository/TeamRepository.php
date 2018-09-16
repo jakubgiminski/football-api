@@ -3,8 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Team;
+use App\Id;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
 class TeamRepository extends ServiceEntityRepository
 {
@@ -13,32 +15,12 @@ class TeamRepository extends ServiceEntityRepository
         parent::__construct($registry, Team::class);
     }
 
-//    /**
-//     * @return Team[] Returns an array of Team objects
-//     */
-    /*
-    public function findByExampleField($value)
+    public function findOrFail(Id $teamId): Team
     {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $team = $this->find($teamId);
+        if ($team === null) {
+            throw new ResourceNotFoundException(Team::class);
+        }
+        return $team;
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Team
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

@@ -2,12 +2,12 @@
 
 namespace App;
 
-use Exception;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-class MissingParameterException extends Exception implements ApiException
+class MissingParameterException extends BadRequestHttpException
 {
     public function __construct(string $parameterName)
     {
-        parent::__construct("Missing required parameter: $parameterName", 400);
+        parent::__construct("Missing required parameter: $parameterName");
     }
 }
