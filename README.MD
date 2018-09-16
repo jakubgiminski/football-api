@@ -12,7 +12,6 @@ Create an http API, that allows users to do four things
 - SQLite
 - Doctrine ORM
 - PHPUnit
-- Json Web Token
 
 ## API documentation
 #### Get a list of all teams from a league 
