@@ -15,9 +15,9 @@ class LeagueRepository extends ServiceEntityRepository
         parent::__construct($registry, League::class);
     }
 
-    public function findOrFail(Id $league): League
+    public function findOrFail(Id $leagueId): League
     {
-        $league = $this->find((string) $league);
+        $league = $this->find($leagueId);
         if ($league === null) {
             throw new ResourceNotFoundException(League::class);
         }

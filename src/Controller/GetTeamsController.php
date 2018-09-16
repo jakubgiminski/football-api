@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\CollectionSerializer;
+use App\Id;
 use App\Repository\LeagueRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -26,7 +27,7 @@ class GetTeamsController extends AbstractController
     public function __invoke(string $leagueId): JsonResponse
     {
         $teams = $this->leagueRepository
-            ->find($leagueId)
+            ->findOrFail(new Id($leagueId))
             ->getTeams();
 
         return $this->json($this->serializer->toArray($teams));

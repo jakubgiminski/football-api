@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Service\UpdateTeam;
-use App\ValidateRequest;
+use App\Service\ValidateRequest;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
