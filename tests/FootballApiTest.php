@@ -10,7 +10,6 @@ use App\Repository\TeamRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 
 abstract class FootballApiTest extends TestCase
 {

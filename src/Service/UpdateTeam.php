@@ -7,7 +7,7 @@ use App\Id;
 use App\Repository\TeamRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class UpdateTeam
+final class UpdateTeam
 {
     private $teamRepository;
     

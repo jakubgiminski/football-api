@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DeleteLeagueController extends AbstractController
+final class DeleteLeagueController extends AbstractController
 {
     private $leagueRepository;
 

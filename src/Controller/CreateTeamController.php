@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CreateTeamController extends AbstractController
+final class CreateTeamController extends AbstractController
 {
     private $validateRequest;
 

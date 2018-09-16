@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Entity;
 
@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TeamRepository")
  */
-class Team implements Arrayable
+final class Team implements Arrayable
 {
     /**
      * @ORM\Id()

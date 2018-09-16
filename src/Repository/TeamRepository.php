@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Repository;
 
@@ -22,5 +22,10 @@ class TeamRepository extends ServiceEntityRepository
             throw new ResourceNotFoundException(Team::class);
         }
         return $team;
+    }
+
+    public function exists(Id $teamId): bool
+    {
+        return (bool) $this->find($teamId);
     }
 }

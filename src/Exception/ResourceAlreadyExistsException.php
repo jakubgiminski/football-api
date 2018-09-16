@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace App;
+namespace App\Exception;
 
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-class ResourceAlreadyExistsException extends BadRequestHttpException
+final class ResourceAlreadyExistsException extends BadRequestHttpException
 {
     public function __construct(string $resourceName)
     {

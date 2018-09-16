@@ -54,6 +54,14 @@ Make sure you have php 7.2 or higher installed along with sqlite3. Then, run com
 ```
 composer install
 ```
+Run database migration
+```
+php bin/console doctrine:migrations:migrate
+```
+Seed the database
+```
+php bin/console doctrine:fixtures:load
+```
 
 ## Execute tests
 ```

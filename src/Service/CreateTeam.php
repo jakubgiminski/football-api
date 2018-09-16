@@ -4,12 +4,12 @@ namespace App\Service;
 
 use App\Entity\Team;
 use App\Id;
-use App\ResourceAlreadyExistsException;
+use App\Exception\ResourceAlreadyExistsException;
 use App\Repository\LeagueRepository;
 use App\Repository\TeamRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class CreateTeam
+final class CreateTeam
 {
     private $leagueRepository;
     
@@ -27,15 +27,11 @@ class CreateTeam
         $this->objectManager = $objectManager;
     }
 
-    public function __invoke(
-        Id $leagueId,
-        Id $teamId,
-        string $teamName, 
-        string $teamStrip
-    ): Team {
+    public function __invoke(Id $leagueId, Id $teamId, string $teamName, string $teamStrip): Team
+    {
         $league = $this->leagueRepository->findOrFail($leagueId);
 
-        if ($this->teamRepository->find($teamId)) {
+        if ($this->teamRepository->exists($teamId)) {
             throw new ResourceAlreadyExistsException(Team::class);
         }
 

@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace App;
+namespace App\Exception;
 
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-class MissingParameterException extends BadRequestHttpException
+final class MissingParameterException extends BadRequestHttpException
 {
     public function __construct(string $parameterName)
     {

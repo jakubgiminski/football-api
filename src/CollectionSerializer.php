@@ -4,7 +4,7 @@ namespace App;
 
 use Doctrine\Common\Collections\Collection;
 
-class CollectionSerializer
+final class CollectionSerializer
 {
     public function toArray(Collection $collection): array
     {

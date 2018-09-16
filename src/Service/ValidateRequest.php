@@ -2,10 +2,10 @@
 
 namespace App\Service;
 
-use App\MissingParameterException;
+use App\Exception\MissingParameterException;
 use Symfony\Component\HttpFoundation\Request;
 
-class ValidateRequest
+final class ValidateRequest
 {
     public function __invoke(Request $request, array $requiredParameters): void
     {
