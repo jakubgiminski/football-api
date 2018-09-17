@@ -66,3 +66,8 @@ php bin/console doctrine:fixtures:load
 ```
 vendor/bin/phpunit tests --colors --testdox
 ```
+
+## Run Symfony server
+```
+php bin/console server:start
+```
