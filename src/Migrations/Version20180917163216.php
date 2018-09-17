@@ -5,7 +5,7 @@ namespace DoctrineMigrations;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
-final class CreateLeagueAndTeamTables extends AbstractMigration
+class Version20180917163216 extends AbstractMigration
 {
     public function up(Schema $schema) : void
     {
