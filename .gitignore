@@ -1,6 +1,7 @@
 /vendor/
 .idea
 bin
+var
 
 ###> symfony/web-server-bundle ###
 /.web-server-pid
