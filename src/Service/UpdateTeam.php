@@ -19,11 +19,8 @@ final class UpdateTeam
         $this->objectManager = $objectManager;
     }
 
-    public function __invoke(
-        Id $teamId,
-        string $teamName,
-        string $teamStrip
-    ): Team {
+    public function __invoke(Id $teamId, string $teamName, string $teamStrip): Team
+    {
         $team = $this->teamRepository->findOrFail($teamId);
 
         $team->setName($teamName);
