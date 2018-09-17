@@ -1,12 +1,7 @@
-/.env
-/public/bundles/
-/var/
 /vendor/
 .idea
-.env
-.env.dist
-composer.lock
 bin
+var
 
 ###> symfony/web-server-bundle ###
 /.web-server-pid
