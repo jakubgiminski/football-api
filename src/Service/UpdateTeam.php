@@ -29,7 +29,6 @@ final class UpdateTeam
         $team->setName($teamName);
         $team->setStrip($teamStrip);
 
-        $this->objectManager->persist($team);
         $this->objectManager->flush();
 
         return $team;
